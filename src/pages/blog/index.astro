@@ -1,0 +1,31 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+
+// Dummy blog data
+const posts = [
+  {
+    title: "Understanding Async/Await in JavaScript",
+    excerpt: "A deep dive into asynchronous programming patterns in modern JavaScript...",
+    date: "2024-01-15",
+    slug: "async-await-javascript"
+  },
+  {
+    title: "Building Scalable React Applications",
+    excerpt: "Best practices and patterns for creating maintainable React apps...",
+    date: "2024-01-10",
+    slug: "scalable-react-apps"
+  }
+];
+---
+
+<MainLayout title="Blog">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Blog Posts</h1>
+    <div class="space-y-8">
+      {posts.map(post => (
+        <BlogCard {...post} />
+      ))}
+    </div>
+  </div>
+</MainLayout>

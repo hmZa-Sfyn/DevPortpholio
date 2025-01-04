@@ -1,0 +1,41 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Admin">
+  <div class="max-w-md mx-auto">
+    <h1 class="text-3xl font-bold mb-8 text-center">Admin Login</h1>
+    
+    <form id="loginForm" class="bg-gray-800 p-6 rounded-lg">
+      <div class="mb-4">
+        <label for="password" class="block mb-2">Password</label>
+        <input 
+          type="password" 
+          id="password"
+          class="w-full p-2 rounded bg-gray-700 border border-gray-600 focus:border-purple-500 focus:outline-none"
+        />
+      </div>
+      
+      <button 
+        type="submit"
+        class="w-full bg-purple-600 py-2 rounded hover:bg-purple-700 transition-colors"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</MainLayout>
+
+<script>
+  const form = document.getElementById('loginForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const password = document.getElementById('password').value;
+    
+    if (password === '12345678') {
+      window.location.href = '/admin/dashboard';
+    } else {
+      alert('Invalid password');
+    }
+  });
+</script>

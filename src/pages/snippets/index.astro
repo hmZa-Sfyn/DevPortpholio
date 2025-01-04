@@ -1,0 +1,71 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import CodeSnippet from '../../components/snippets/CodeSnippet.astro';
+import SearchBar from '../../components/snippets/SearchBar.astro';
+import type { Snippet } from '../../types/snippet';
+
+const snippets: Snippet[] = [
+  {
+    id: 1,
+    title: "React Custom Hook: useLocalStorage",
+    code: `const useLocalStorage = (key, initialValue) => {
+  const [value, setValue] = useState(() => {
+    return JSON.parse(localStorage.getItem(key)) ?? initialValue;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+
+  return [value, setValue];
+};`,
+    language: "javascript",
+    description: "A custom React hook for managing localStorage values",
+    author: "devguru",
+    tags: [
+      { name: "react", color: "bg-blue-600" },
+      { name: "hooks", color: "bg-green-600" },
+      { name: "storage", color: "bg-yellow-600" }
+    ],
+    topics: ["state-management", "browser-apis"],
+    created: "2024-01-20",
+    lineNumbers: true
+  },
+  {
+    id: 2,
+    title: "TypeScript Utility Types",
+    code: `type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+type UserPartial = Partial<User>;
+type UserReadOnly = Readonly<User>;
+type UserPick = Pick<User, 'id' | 'name'>;
+type UserOmit = Omit<User, 'email'>;`,
+    language: "typescript",
+    description: "Common TypeScript utility types and their usage",
+    author: "tsmaster",
+    tags: [
+      { name: "typescript", color: "bg-blue-600" },
+      { name: "types", color: "bg-purple-600" }
+    ],
+    topics: ["type-safety", "utilities"],
+    created: "2024-01-19",
+    lineNumbers: true
+  }
+];
+---
+
+<MainLayout title="Code Snippets">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Code Snippets</h1>
+    <SearchBar />
+    <div class="space-y-8">
+      {snippets.map(snippet => (
+        <CodeSnippet snippet={snippet} />
+      ))}
+    </div>
+  </div>
+</MainLayout>

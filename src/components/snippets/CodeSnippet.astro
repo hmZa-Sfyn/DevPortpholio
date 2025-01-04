@@ -1,0 +1,39 @@
+---
+import Tag from './Tag.astro';
+import type { Snippet } from '../../types/snippet';
+
+interface Props {
+  snippet: Snippet;
+}
+
+const { snippet } = Astro.props;
+---
+
+<div class="bg-gray-800 rounded-lg p-6 snippet-card">
+  <div class="flex justify-between items-start mb-4">
+    <div>
+      <span class="text-gray-400 text-sm">#{snippet.id}</span>
+      <h3 class="text-xl font-bold">{snippet.title}</h3>
+    </div>
+    <span class="text-gray-400 text-sm">{snippet.created}</span>
+  </div>
+
+  <p class="text-gray-300 mb-4">{snippet.description}</p>
+
+  <div class="mb-4 flex flex-wrap gap-2">
+    {snippet.tags.map(tag => (
+      <Tag name={tag.name} color={tag.color} type="tag" />
+    ))}
+    {snippet.topics.map(topic => (
+      <Tag name={topic} color="bg-purple-600" type="topic" />
+    ))}
+    <Tag name={snippet.author} color="bg-blue-600" type="author" />
+  </div>
+
+  <pre class="bg-gray-900 p-4 rounded overflow-x-auto relative">
+
+    <code class={`language-${snippet.language} ${snippet.lineNumbers ? 'pl-8' : ''}`}>
+      {snippet.code}
+    </code>
+  </pre>
+</div>

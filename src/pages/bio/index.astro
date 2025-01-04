@@ -1,0 +1,52 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+
+const skills = [
+  "JavaScript/TypeScript",
+  "React",
+  "Node.js",
+  "Python",
+  "Rust",
+  "AWS"
+];
+
+const experiences = [
+  {
+    title: "Senior Developer",
+    company: "Tech Corp",
+    period: "2020-Present",
+    description: "Leading frontend development team"
+  }
+];
+---
+
+<MainLayout title="Bio">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">About Me</h1>
+    
+    <div class="bg-gray-800 p-8 rounded-lg mb-8">
+      <h2 class="text-2xl font-bold mb-4">Skills</h2>
+      <div class="flex flex-wrap gap-2">
+        {skills.map(skill => (
+          <span class="bg-purple-600 px-3 py-1 rounded-full text-sm">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <div class="bg-gray-800 p-8 rounded-lg">
+      <h2 class="text-2xl font-bold mb-4">Experience</h2>
+      <div class="space-y-6">
+        {experiences.map(exp => (
+          <div>
+            <h3 class="text-xl font-bold">{exp.title}</h3>
+            <p class="text-purple-400">{exp.company}</p>
+            <p class="text-gray-400">{exp.period}</p>
+            <p class="mt-2">{exp.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</MainLayout>

@@ -1,0 +1,54 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import AsciiLogo from '../components/AsciiLogo.astro';
+---
+
+<MainLayout title="Home">
+  <div class="text-center mb-12">
+    <AsciiLogo />
+    <h1 class="text-4xl font-bold mb-4">Welcome to My Digital Garden</h1>
+    <p class="text-xl text-gray-300 mb-8">
+      Programmer • Developer • Hacker • Thinker • Writer
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="feature-card">
+      <h2>📝 Blog</h2>
+      <p>Deep dives into tech, programming, and life</p>
+      <a href="https://blog.hmza.vercel.app/" class="btn">Read More</a>
+    </div>
+    
+    <div class="feature-card">
+      <h2>💭 Moments</h2>
+      <p>Quick thoughts and updates</p>
+      <a href="/moments" class="btn">View Moments</a>
+    </div>
+    
+    <div class="feature-card">
+      <h2>📸 Photo Blog</h2>
+      <p>Visual stories through my lens</p>
+      <a href="/photos" class="btn">View Photos</a>
+    </div>
+
+    <div class="feature-card">
+      <h2>Website</h2>
+      <p>Personal Portpholio Website</p>
+      <a href="https://hmza-sfyn.github.io/" class="btn">Browse Website</a>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .feature-card {
+    @apply bg-gray-800 p-6 rounded-lg text-center hover:transform hover:scale-105 transition-transform;
+  }
+  
+  .feature-card h2 {
+    @apply text-2xl font-bold mb-4;
+  }
+  
+  .btn {
+    @apply inline-block mt-4 px-6 py-2 bg-purple-600 rounded-full hover:bg-purple-700 transition-colors;
+  }
+</style>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  name: string;
+  color: string;
+  type: 'tag' | 'topic' | 'author';
+}
+
+const { name, color, type } = Astro.props;
+const prefix = type === 'tag' ? '#' : type === 'topic' ? '!' : '@';
+---
+
+<span 
+  class={`inline-flex items-center px-3 py-1 rounded-full text-sm ${color}`}
+>
+  {prefix}{name}
+</span>

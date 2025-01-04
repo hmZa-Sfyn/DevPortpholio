@@ -1,0 +1,26 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-800 py-8 mt-auto">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <p class="text-sm text-gray-400">
+          © {currentYear} DevPortfolio. Built with ❤️ using Astro
+        </p>
+      </div>
+      <div class="flex space-x-6">
+        <a href="https://github.com" class="text-gray-400 hover:text-white">
+          GitHub
+        </a>
+        <a href="https://twitter.com" class="text-gray-400 hover:text-white">
+          Twitter
+        </a>
+        <a href="/rss.xml" class="text-gray-400 hover:text-white">
+          RSS
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

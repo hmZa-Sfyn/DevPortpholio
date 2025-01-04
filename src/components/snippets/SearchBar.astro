@@ -1,0 +1,31 @@
+---
+---
+<div class="mb-8">
+  <input 
+    type="text"
+    id="snippetSearch"
+    placeholder="Search snippets..."
+    class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none"
+  />
+</div>
+
+<script>
+  const searchInput = document.getElementById('snippetSearch');
+  const snippetCards = document.querySelectorAll('.snippet-card');
+
+  searchInput?.addEventListener('input', (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+
+    snippetCards.forEach((card) => {
+      const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+      const description = card.querySelector('p')?.textContent?.toLowerCase() || '';
+      const code = card.querySelector('code')?.textContent?.toLowerCase() || '';
+
+      if (title.includes(searchTerm) || description.includes(searchTerm) || code.includes(searchTerm)) {
+        (card as HTMLElement).style.display = 'block';
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+  });
+</script>

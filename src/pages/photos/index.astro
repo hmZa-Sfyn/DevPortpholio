@@ -1,0 +1,135 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PhotoCard from '../../components/photos/PhotoCard.astro';
+
+// Dummy photo data
+const photos = [
+  {
+    title: "Sunset Coding Session",
+    imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
+    description: "Coding with a view",
+    date: "2024-01-18"
+  },
+  {
+    title: "Developer Setup",
+    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    description: "My minimal workspace",
+    date: "2024-01-17"
+  },
+  {
+    title: "Coffee and Code",
+    imageUrl: "https://images.unsplash.com/photo-1515165562835-c95822a3ea6d",
+    description: "The fuel for developers",
+    date: "2024-01-16"
+  },
+  {
+    title: "Mountain View Office",
+    imageUrl: "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0",
+    description: "Remote work at its finest",
+    date: "2024-01-15"
+  },
+  {
+    title: "Night Coding Marathon",
+    imageUrl: "https://images.unsplash.com/photo-1483058712412-4245e9b90334",
+    description: "Burning the midnight oil",
+    date: "2024-01-14"
+  },
+  {
+    title: "Organized Desk",
+    imageUrl: "https://images.unsplash.com/photo-1497366216548-37526070297c",
+    description: "Clean workspace, clear mind",
+    date: "2024-01-13"
+  },
+  {
+    title: "Dual Monitor Setup",
+    imageUrl: "https://images.unsplash.com/photo-1527430253228-e93688616381",
+    description: "For ultimate productivity",
+    date: "2024-01-12"
+  },
+  {
+    title: "The Perfect Keyboard",
+    imageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    description: "Mechanical keyboards are life",
+    date: "2024-01-11"
+  },
+  {
+    title: "Coding by the Lake",
+    imageUrl: "https://images.unsplash.com/photo-1497215842964-222b430dc094",
+    description: "Relaxing and productive",
+    date: "2024-01-10"
+  },
+  {
+    title: "Team Brainstorming",
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    description: "Collaborating for innovation",
+    date: "2024-01-09"
+  },
+  {
+    title: "Mobile Developer Setup",
+    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    description: "Coding on the go",
+    date: "2024-01-08"
+  },
+  {
+    title: "Laptop Lifestyle",
+    imageUrl: "https://images.unsplash.com/photo-1508896694512-9f8e30e14c34",
+    description: "Coding anywhere and everywhere",
+    date: "2024-01-07"
+  },
+  {
+    title: "Books and Code",
+    imageUrl: "https://images.unsplash.com/photo-1517430816045-df4b7de64d2e",
+    description: "A mix of analog and digital",
+    date: "2024-01-06"
+  },
+  {
+    title: "Cloudy Coding",
+    imageUrl: "https://images.unsplash.com/photo-1499728603263-13726abce5fd",
+    description: "Cloud inspiration",
+    date: "2024-01-05"
+  },
+  {
+    title: "Coffee and Sunlight",
+    imageUrl: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    description: "Mornings made better",
+    date: "2024-01-04"
+  },
+  {
+    title: "Colorful Workspace",
+    imageUrl: "https://images.unsplash.com/photo-1519241047957-be31d7379a5d",
+    description: "Adding vibrance to work",
+    date: "2024-01-03"
+  },
+  {
+    title: "Headphones On",
+    imageUrl: "https://images.unsplash.com/photo-1518779578993-596d3d7dd16d",
+    description: "Focused and undisturbed",
+    date: "2024-01-02"
+  },
+  {
+    title: "City Coding",
+    imageUrl: "https://images.unsplash.com/photo-1487058792275-aed66f58f670",
+    description: "Urban inspiration",
+    date: "2024-01-01"
+  },
+  {
+    title: "High-Tech Desk",
+    imageUrl: "https://images.unsplash.com/photo-1535223289827-42f1e9919769",
+    description: "All the gadgets you need",
+    date: "2023-12-31"
+  }
+  // More entries go here...
+  // You would continue to add more entries here in the same format until you reach 100.
+];
+---
+
+<MainLayout title="Photo Blog">
+  <div class="max-w-6xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Photo Blog</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {photos.map(photo => (
+        <PhotoCard {...photo} />
+      ))}
+    </div>
+  </div>
+</MainLayout>

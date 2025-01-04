@@ -1,0 +1,272 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import MomentCard from '../../components/moments/MomentCard.astro';
+
+// Dummy moments data
+const moments = [
+  {
+    content: "Just pushed a major update to the project! 🚀 Check out commit abc123",
+    date: "2024-01-20",
+    id: "1"
+  },
+  {
+    content: "Learning Rust today. Mind = blown 🤯",
+    date: "2024-01-19",
+    id: "2"
+  },
+  {
+    content: "Started building a CLI tool for automation 🛠️",
+    date: "2024-01-18",
+    id: "3"
+  },
+  {
+    content: "Deployed my personal portfolio website 🌐",
+    date: "2024-01-17",
+    id: "4"
+  },
+  {
+    content: "Brainstormed ideas for my new programming language 😎",
+    date: "2024-01-16",
+    id: "5"
+  },
+  {
+    content: "Fixed a nasty bug that was driving me crazy 🐛🔥",
+    date: "2024-01-15",
+    id: "6"
+  },
+  {
+    content: "Broke production... whoops! Rolling back now 😅",
+    date: "2024-01-14",
+    id: "7"
+  },
+  {
+    content: "Refactored old code and made it 10x cleaner ✨",
+    date: "2024-01-13",
+    id: "8"
+  },
+  {
+    content: "Started learning about WebAssembly. Game-changer! 💻",
+    date: "2024-01-12",
+    id: "9"
+  },
+  {
+    content: "Designed the database schema for the new app 📊",
+    date: "2024-01-11",
+    id: "10"
+  },
+  {
+    content: "Finished the README for my open-source project 📖",
+    date: "2024-01-10",
+    id: "11"
+  },
+  {
+    content: "Contributed to an open-source library on GitHub 🤝",
+    date: "2024-01-09",
+    id: "12"
+  },
+  {
+    content: "First draft of the API documentation done 📝",
+    date: "2024-01-08",
+    id: "13"
+  },
+  {
+    content: "Experimenting with neural networks 🤖",
+    date: "2024-01-07",
+    id: "14"
+  },
+  {
+    content: "Gave a tech talk at the local meetup 🎤",
+    date: "2024-01-06",
+    id: "15"
+  },
+  {
+    content: "Writing tests is oddly satisfying today ✅",
+    date: "2024-01-05",
+    id: "16"
+  },
+  {
+    content: "Created my first React Native app 📱",
+    date: "2024-01-04",
+    id: "17"
+  },
+  {
+    content: "Migrated the project to TypeScript. Strong typing FTW 🚀",
+    date: "2024-01-03",
+    id: "18"
+  },
+  {
+    content: "Started learning about microservices architecture 🕸️",
+    date: "2024-01-02",
+    id: "19"
+  },
+  {
+    content: "Built a simple game using Unity and C# 🎮",
+    date: "2024-01-01",
+    id: "20"
+  },
+  {
+    content: "Improved my Linux shell scripting skills 🐧",
+    date: "2023-12-31",
+    id: "21"
+  },
+  {
+    content: "Read a book on functional programming concepts 📚",
+    date: "2023-12-30",
+    id: "22"
+  },
+  {
+    content: "Created a RESTful API with Flask 🐍",
+    date: "2023-12-29",
+    id: "23"
+  },
+  {
+    content: "Started learning about Kubernetes 🐋",
+    date: "2023-12-28",
+    id: "24"
+  },
+  {
+    content: "Designed a responsive website layout 🌐",
+    date: "2023-12-27",
+    id: "25"
+  },
+  {
+    content: "Experimenting with the latest CSS features ✂️",
+    date: "2023-12-26",
+    id: "26"
+  },
+  {
+    content: "Dived into blockchain development 🔗",
+    date: "2023-12-25",
+    id: "27"
+  },
+  {
+    content: "Set up CI/CD pipelines for my projects 🚦",
+    date: "2023-12-24",
+    id: "28"
+  },
+  {
+    content: "Finally mastered regular expressions 🎯",
+    date: "2023-12-23",
+    id: "29"
+  },
+  {
+    content: "Achieved 100% test coverage in my app 🎉",
+    date: "2023-12-22",
+    id: "30"
+  },
+  {
+    content: "Started a blog on programming and tech 💻",
+    date: "2023-12-21",
+    id: "31"
+  },
+  {
+    content: "Attended a workshop on AI ethics 🤔",
+    date: "2023-12-20",
+    id: "32"
+  },
+  {
+    content: "Debugged for 8 hours straight. Found the issue! 🕵️",
+    date: "2023-12-19",
+    id: "33"
+  },
+  {
+    content: "Built a custom CLI for my workflows 🛠️",
+    date: "2023-12-18",
+    id: "34"
+  },
+  {
+    content: "Integrated a payment gateway into the app 💳",
+    date: "2023-12-17",
+    id: "35"
+  },
+  {
+    content: "Exploring the world of NoSQL databases 📂",
+    date: "2023-12-16",
+    id: "36"
+  },
+  {
+    content: "Started working on my portfolio website 🌟",
+    date: "2023-12-15",
+    id: "37"
+  },
+  {
+    content: "Built a chatbot using NLP libraries 🗣️",
+    date: "2023-12-14",
+    id: "38"
+  },
+  {
+    content: "Learned how to use Docker effectively 🐳",
+    date: "2023-12-13",
+    id: "39"
+  },
+  {
+    content: "Created a custom VS Code theme 🎨",
+    date: "2023-12-12",
+    id: "40"
+  },
+  {
+    content: "Deployed a serverless function to AWS ☁️",
+    date: "2023-12-11",
+    id: "41"
+  },
+  {
+    content: "Working on improving app performance ⚡",
+    date: "2023-12-10",
+    id: "42"
+  },
+  {
+    content: "Read an article about quantum computing 💡",
+    date: "2023-12-09",
+    id: "43"
+  },
+  {
+    content: "Refactored code to use design patterns 🛠️",
+    date: "2023-12-08",
+    id: "44"
+  },
+  {
+    content: "Started learning Go for backend development 📘",
+    date: "2023-12-07",
+    id: "45"
+  },
+  {
+    content: "Created a Python script to automate tasks 🐍",
+    date: "2023-12-06",
+    id: "46"
+  },
+  {
+    content: "Experimenting with DALL-E for creative projects 🎨",
+    date: "2023-12-05",
+    id: "47"
+  },
+  {
+    content: "Set up a home server with Raspberry Pi 🍓",
+    date: "2023-12-04",
+    id: "48"
+  },
+  {
+    content: "Broke a record: Solved a bug in 10 minutes 🏆",
+    date: "2023-12-03",
+    id: "49"
+  },
+  {
+    content: "Learning about distributed systems 📡",
+    date: "2023-12-02",
+    id: "50"
+  }
+];
+
+// Expand as needed up to 100 entries!
+
+---
+
+<MainLayout title="Moments">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-4xl font-bold mb-8">Moments</h1>
+    <div class="space-y-4">
+      {moments.map(moment => (
+        <MomentCard {...moment} />
+      ))}
+    </div>
+  </div>
+</MainLayout>

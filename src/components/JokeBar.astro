@@ -1,0 +1,37 @@
+---
+const jokes = [
+  "Why do programmers prefer dark mode? Because light attracts bugs!",
+  "Why did the developer go broke? Because he used up all his cache!",
+  "What's a programmer's favorite hangout spot? The Foo Bar!",
+  "Why don't scientists trust atoms? Because they make up everything!",
+  "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+  "Why did the scarecrow win an award? Because he was outstanding in his field!",
+  "What do you call a fake noodle? An impasta!",
+  "Why don't eggs tell jokes? They'd crack each other up!",
+  "I'm afraid for the calendar. Its days are numbered.",
+  "What do you call a bear with no teeth? A gummy bear!",
+  "Why did the math book look so sad? Because it had too many problems.",
+  "What do you call a can opener that doesn't work? A can't opener!",
+  "Why did the bicycle fall over? Because it was two-tired!"
+  // Add more jokes here...
+];
+
+const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+---
+
+<div class="bg-gray-700 py-2 px-4 text-center text-sm">
+  <p class="animate-typing">💡 {randomJoke}</p>
+</div>
+
+<style>
+  .animate-typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end);
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+</style>

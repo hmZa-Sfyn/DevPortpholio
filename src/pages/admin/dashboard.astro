@@ -1,0 +1,45 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Admin Dashboard">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="admin-card">
+      <h2>📝 Manage Blog Posts</h2>
+      <div class="mt-4 space-y-2">
+        <button class="admin-btn">New Post</button>
+        <button class="admin-btn">Edit Posts</button>
+      </div>
+    </div>
+    
+    <div class="admin-card">
+      <h2>💭 Manage Moments</h2>
+      <div class="mt-4 space-y-2">
+        <button class="admin-btn">New Moment</button>
+        <button class="admin-btn">Edit Moments</button>
+      </div>
+    </div>
+    
+    <div class="admin-card">
+      <h2>📸 Manage Photos</h2>
+      <div class="mt-4 space-y-2">
+        <button class="admin-btn">Upload Photos</button>
+        <button class="admin-btn">Edit Gallery</button>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .admin-card {
+    @apply bg-gray-800 p-6 rounded-lg;
+  }
+  
+  .admin-card h2 {
+    @apply text-xl font-bold;
+  }
+  
+  .admin-btn {
+    @apply block w-full py-2 px-4 bg-purple-600 rounded hover:bg-purple-700 transition-colors;
+  }
+</style>
